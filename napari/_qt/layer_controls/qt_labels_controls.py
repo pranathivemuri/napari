@@ -103,7 +103,7 @@ class QtLabelsControls(QtLayerControls):
         sld = QSlider(Qt.Horizontal)
         sld.setFocusPolicy(Qt.NoFocus)
         sld.setMinimum(1)
-        sld.setMaximum(40)
+        sld.setMaximum(400)
         sld.setSingleStep(1)
         sld.valueChanged.connect(self.changeSize)
         self.brushSizeSlider = sld
@@ -412,7 +412,7 @@ class QtLabelsControls(QtLayerControls):
         """
         with self.layer.events.brush_size.blocker():
             value = self.layer.brush_size
-            value = np.clip(int(value), 1, 40)
+            value = np.clip(int(value), 1, 400)
             self.brushSizeSlider.setValue(value)
 
     def _on_n_edit_dimensions_change(self, event=None):
